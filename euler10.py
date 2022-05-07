@@ -15,6 +15,3 @@ for counter in range(2,2000001):
         sum += counter
 
 print(sum)
-
-# for i in range (2,11):
-#     print(i , check_prime(i))
