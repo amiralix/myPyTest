@@ -53,7 +53,7 @@ class board:
 
 
 
-with open("D:/new 2.txt") as file:
+with open("D:/new2.txt") as file:
     input = file.readlines()
 input = [x.strip() for x in input]
 
@@ -61,7 +61,7 @@ boards = []
 for counter in range(0,len(input)):
     input[counter] =  (re.split("\s",input[counter]))
 
-for board_number in range(0,int(len(input)/5)):
+for board_number in range(0,100):
     my_board = board()
     dirty_board = input[6*board_number+2:6*board_number+7]
     for row_counter in range(0,5):
