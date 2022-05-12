@@ -75,6 +75,8 @@ for board_number in range(0,100):
     boards.append(my_board)
     del my_board
 
+win_boards_ever = [0] * 100
+
 commands = input[0]
 commands = commands[0].split(",")
 for order_number in range(0,len(commands)):
@@ -84,10 +86,13 @@ for order_number in range(0,len(commands)):
         if the_board.find_number_in_board(int(order)) != -1 :
             the_board.mark(the_board.find_number_in_board(int(order))[0],the_board.find_number_in_board(int(order))[1])
             if (the_board.is_win()[0] != -1 and  the_board.is_win()[1] != -1):
-                print(the_board.find_number_in_board(int(order))[0],the_board.find_number_in_board(int(order))[1])
-                print(board_number)
-                print(the_board.marked)
-                print("final item is" , order)
-                print("unmarked sum is" ,the_board.find_sum_unmarked())
-                print("answer is" , int(the_board.find_sum_unmarked())*int(order))
-                exit(0)
+                win_boards_ever[board_number] = 1
+                if win_boards_ever.count(0) == 0:
+                    print(the_board.find_number_in_board(int(order))[0],the_board.find_number_in_board(int(order))[1])
+                    print(board_number)
+                    print(the_board.marked)
+                    print("final item is" , order)
+                    print("unmarked sum is" ,the_board.find_sum_unmarked())
+                    print("answer is" , int(the_board.find_sum_unmarked())*int(order))
+                    exit(0)
+
